@@ -7,11 +7,15 @@
 function crearClasePersona() {
   class Persona {
     constructor(nombre, edad, hobbies, amigos) {
+      
       // El constructor de la clase Persona recibe nombre (string), edad (integer), hobbies (array de strings), amigos (array de objetos)
       // Inicializar las propiedades de la persona con los valores recibidos como argumento
 
       // Tu código aca:
-
+      this.nombre=nombre;
+      this.edad=edad;
+      this.hobbies=hobbies;
+      this.amigos=amigos;
     }
 
     addFriend(nombre, edad) {
@@ -20,6 +24,11 @@ function crearClasePersona() {
       // No debe retornar nada.
 
       // Tu código aca:
+      var nuevo_objeto={};
+      nuevo_objeto.nombre=nombre;
+      nuevo_objeto.edad=edad;
+      this.amigos.push(nuevo_objeto)
+
 
     }
 
@@ -28,6 +37,7 @@ function crearClasePersona() {
       // No debe retornar nada.
 
       // Tu código aca:
+      this.hobbies.push(hobby);
 
     }
     getFriends() {
@@ -38,6 +48,11 @@ function crearClasePersona() {
       // persona.getFriends() debería devolver ['martin', 'toni']
 
       // Tu código aca:
+      var nuevo_arr=[];
+      for (let i in this.amigos){
+         nuevo_arr.push(this.amigos[i].nombre)
+      }
+      return nuevo_arr;
 
     }
 
@@ -47,6 +62,7 @@ function crearClasePersona() {
       // persona.getHobbies() debe devolver ['correr', 'dormir', 'nadar']
 
       // Tu código aca:
+      return this.hobbies;
 
     }
 
@@ -66,6 +82,13 @@ function crearClasePersona() {
       // persona.getPromedioEdad() debería devolver 29 ya que (33 + 25) / 2 = 29
 
       // Tu código aca:
+      var suma=0;
+      var cont=0;
+      for (let i in this.amigos){
+       suma=suma+this.amigos[i].edad
+       cont=cont+1;
+     }
+     return suma/cont;
 
     }
   };
